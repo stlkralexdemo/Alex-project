@@ -12,16 +12,16 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-
-@Controller
-@RequestMapping("/image")
-public class ImageController {
-
-
-    @GetMapping("/{imageName}")
-    public MultipartFile getImage(@PathVariable("imageName") String imageName) throws FileNotFoundException {
-        return IOUtils(new FileOutputStream("files/" + imageName));
-        return new Mu
-    }
-
-}
+//
+//@Controller
+//@RequestMapping("/image")
+//public class ImageController {
+//
+//
+//    @GetMapping("/{imageName}")
+//    public MultipartFile getImage(@PathVariable("imageName") String imageName) throws FileNotFoundException {
+//        return IOUtils(new FileOutputStream("files/" + imageName));
+//        return new Mu
+//    }
+//
+//}
