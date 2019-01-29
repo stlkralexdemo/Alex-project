@@ -32,5 +32,12 @@ public class ProductService {
         return repository.findAllByMtbSizeOrderByPriceDesc(findMtbBySize(height));
     }
 
+    public List<ProductEntity> getAll() {
+        return repository.findAll();
+    }
 
+    public ProductEntity getById(int id) {
+        return repository.findById(id)
+                .orElseThrow(ProductNotFoundException::new);
+    }
 }
