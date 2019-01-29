@@ -25,7 +25,7 @@ public class ProductEntity {
     private String mtbSize;
     private Integer roadBikeSize;
     private Integer skiSize;
-    private SkiType skiType;
+    private ProductType productType;
     private String image;
 
 }

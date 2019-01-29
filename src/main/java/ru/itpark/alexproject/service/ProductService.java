@@ -2,7 +2,11 @@ package ru.itpark.alexproject.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.itpark.alexproject.entity.ProductEntity;
+import ru.itpark.alexproject.exception.ProductNotFoundException;
 import ru.itpark.alexproject.repository.ProductRepository;
+
+import java.util.List;
 
 @Service
 public class ProductService {
@@ -21,7 +25,11 @@ public class ProductService {
             return "S";
         } else if (height > 170 && height <= 180) {
             return "M";
-        } else throw new NoSizeException();
+        } else throw new ProductNotFoundException();
+    }
+
+    public List<ProductEntity> findAllMtbByHeigt(int height) {
+        return repository.findAllByMtbSizeOrderByPriceDesc(findMtbBySize(height));
     }
 
 
