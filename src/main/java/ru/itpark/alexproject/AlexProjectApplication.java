@@ -21,7 +21,9 @@ public class AlexProjectApplication {
                 new ProductEntity(0,"Peltonen Infra X",13499,null,null,null,207, ProductType.CLASSIC,null),
                 new ProductEntity(0,"Tisa Race Cup Skating",3799,null,null,null,197, ProductType.SKATE,null),
                 new ProductEntity(0,"Giant ",53499,null,null,60,null, ProductType.ROAD,null),
-                new ProductEntity(0,"Radon",33499,null,"XL",null,null, ProductType.MTB,null)
+                new ProductEntity(0,"Radon",33499,null,"S",null,null, ProductType.MTB,null),
+                new ProductEntity(0,"Merida",43499,null,"S",null,null, ProductType.MTB,null),
+                new ProductEntity(0,"Torpado",83499,null,"L",null,null, ProductType.MTB,null)
         ));
     }
 

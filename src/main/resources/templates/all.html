@@ -9,8 +9,13 @@
 </head>
 <body>
 <form data-th-action="@{/search}">
+    <input name="height" type="search" class="item-search" data-th-value="${height}">
+    <button type="submit">Search by Height</button>
+</form>
+
+<form data-th-action="@{/search}">
     <input name="name" type="search" class="item-search" data-th-value="${name}">
-    <button type="submit">Go</button>
+    <button type="submit">Search By Name</button>
 </form>
 
 <ul>

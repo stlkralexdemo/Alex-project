@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import ru.itpark.alexproject.entity.ProductType;
 import ru.itpark.alexproject.service.ProductService;
 
 @Controller
@@ -16,7 +18,7 @@ public class ProductController {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping()
     public String getAll(Model model) {
         model.addAttribute("items", service.getAll());
         return "all";
@@ -28,4 +30,26 @@ public class ProductController {
 
         return "view";
     }
+    @GetMapping(value = "/search", params = "height") // Mapping - определяет то, что должно быть в запросе
+    public String search(@RequestParam Integer height, Model model) {
+        model.addAttribute("height", height); // чтобы отображать в поле поиска
+        model.addAttribute("items", service.findAllMtbByHeight(height));
+        return "all";
+    }
+
+    @GetMapping(value = "/search", params = "name") // Mapping - определяет то, что должно быть в запросе
+    public String search(@RequestParam String name, Model model) {
+        model.addAttribute("name", name); // чтобы отображать в поле поиска
+        model.addAttribute("items", service.findByName(name));
+        return "all";
+    }
+
+//    @GetMapping(value = "/search",params = "type" )
+//    public String getByType(@PathVariable ProductType MTB, Model model) {
+//        model.addAllAttributes("type", ProductType);
+//        model.addAttribute("item", service.findByType(MTB));
+//
+//        return "allMtb";
+    }
+
 }

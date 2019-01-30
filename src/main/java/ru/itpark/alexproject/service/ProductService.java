@@ -3,6 +3,7 @@ package ru.itpark.alexproject.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.itpark.alexproject.entity.ProductEntity;
+import ru.itpark.alexproject.entity.ProductType;
 import ru.itpark.alexproject.exception.ProductNotFoundException;
 import ru.itpark.alexproject.repository.ProductRepository;
 
@@ -28,7 +29,7 @@ public class ProductService {
         } else throw new ProductNotFoundException();
     }
 
-    public List<ProductEntity> findAllMtbByHeigt(int height) {
+    public List<ProductEntity> findAllMtbByHeight(int height) {
         return repository.findAllByMtbSizeOrderByPriceDesc(findMtbBySize(height));
     }
 
@@ -39,5 +40,13 @@ public class ProductService {
     public ProductEntity getById(int id) {
         return repository.findById(id)
                 .orElseThrow(ProductNotFoundException::new);
+    }
+
+    public List<ProductEntity> findByName(String name) {
+        return repository.findAllByNameContainsIgnoreCaseOrderByPriceDesc(name);
+    }
+
+    public List<ProductEntity> findByType(ProductType type){
+        return repository.findProductEntitiesByProductTypeOrderByPriceDesc(type);
     }
 }
