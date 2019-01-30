@@ -6,8 +6,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
+<div class="container">
 <form data-th-action="@{/search}">
     <input name="height" type="search" class="item-search" data-th-value="${height}">
     <button type="submit">Search by Height</button>
@@ -18,8 +20,8 @@
     <button type="submit">Search By Name</button>
 </form>
 
-<ul>
-    <li data-th-each="item : ${items}" class="item">
+<ul class="list-group">
+    <li data-th-each="item : ${items}" class="item list-group-item">
         <a data-th-href="@{/{id}(id=${item.id})}">
             [[${item.name}]]
         </a>
@@ -29,6 +31,6 @@
 <p data-th-if="${items.size() == 0}" class="no-items">No products to display</p>
 
 <a data-th-href="@{/0/edit}">Add</a>
-
+</div>
 </body>
 </html>

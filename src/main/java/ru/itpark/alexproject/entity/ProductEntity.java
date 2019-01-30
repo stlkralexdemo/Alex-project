@@ -14,14 +14,15 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class ProductEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
     private Integer price;
     private String description;
-    private String mtbSize;
+    private MTBSize mtbSize;
     private Integer roadBikeSize;
     private Integer skiSize;
     private ProductType productType;

@@ -3,6 +3,7 @@ package ru.itpark.alexproject.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.itpark.alexproject.entity.ProductEntity;
+import ru.itpark.alexproject.entity.MTBSize;
 import ru.itpark.alexproject.entity.ProductType;
 import ru.itpark.alexproject.exception.ProductNotFoundException;
 import ru.itpark.alexproject.repository.ProductRepository;
@@ -19,13 +20,13 @@ public class ProductService {
         this.repository = repository;
     }
 
-    private String findMtbBySize(int height) {
+    private MTBSize findMtbBySize(int height) {
         if (height > 150 && height <= 160) {
-            return "XS";
+            return MTBSize.XS;
         } else if (height > 160 && height <= 170) {
-            return "S";
+            return MTBSize.S;
         } else if (height > 170 && height <= 180) {
-            return "M";
+            return MTBSize.M;
         } else throw new ProductNotFoundException();
     }
 

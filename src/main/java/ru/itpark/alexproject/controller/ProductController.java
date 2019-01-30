@@ -30,6 +30,7 @@ public class ProductController {
 
         return "view";
     }
+
     @GetMapping(value = "/search", params = "height") // Mapping - определяет то, что должно быть в запросе
     public String search(@RequestParam Integer height, Model model) {
         model.addAttribute("height", height); // чтобы отображать в поле поиска
@@ -44,12 +45,21 @@ public class ProductController {
         return "all";
     }
 
-//    @GetMapping(value = "/search",params = "type" )
-//    public String getByType(@PathVariable ProductType MTB, Model model) {
-//        model.addAllAttributes("type", ProductType);
-//        model.addAttribute("item", service.findByType(MTB));
-//
-//        return "allMtb";
+    @GetMapping("/all/{Mtb}")
+    public String getByType(@PathVariable("Mtb") ProductType type, Model model) {
+        model.addAttribute("items", service.findByType(type));
+        switch (type) {
+            case MTB:
+                return "allMtb";
+            case SKATE:
+                return "allSkate";
+            case ROAD:
+                return "allSkate";
+            case CLASSIC:
+                return "allClassic";
+            default:
+                throw new IllegalArgumentException("Unknown type");
+        }
     }
 
 }
