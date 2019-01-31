@@ -9,6 +9,12 @@
 </head>
 <body>
 <h1 style="background-color:azure"> Магазин спортивных товаров </h1>
+<h2>
+    <form data-th-action="@{/search}">
+        <input name="name" type="search" class="item-search" data-th-value="${name}">
+        <button type="submit">Поиск по имени</button>
+    </form>
+</h2>
 <ul>
 
     <a href="http://localhost:8080/index/CLASSIC">Классические лыжи</a>

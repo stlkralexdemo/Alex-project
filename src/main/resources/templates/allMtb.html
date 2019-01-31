@@ -10,25 +10,23 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
-<h1 style="background-color: chocolate"> Горные велосипеды </h1>
+<h1 style="background-color: #d27018"> Горные велосипеды </h1>
 <div class="container">
+
     <form data-th-action="@{/search}">
         <input name="height" type="search" class="item-search" data-th-value="${height}">
         <button type="submit">Подбор под ваш рост</button>
     </form>
 
-    <form data-th-action="@{/search}">
-        <input name="name" type="search" class="item-search" data-th-value="${name}">
-        <button type="submit">Поиск по имени</button>
-    </form>
-
     <ul>
         <li data-th-each="item : ${items}" class="item">
             <a data-th-href="@{/{id}(id=${item.id})}">
-                [[${item.name}]]
+                [[${item.name}]] - [[${item.MTBSize}]]
             </a>
         </li>
     </ul>
+
+    <p data-th-if="${items.size() == 0}" class="no-items">На ваш рост нет товара в наличии</p>
 
     <a href="/">На главную</a>
 </div>

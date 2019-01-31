@@ -10,15 +10,23 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
-<h1 style="background-color:darkcyan"> Лыжи для классического хода </h1>
+<h1 style="background-color:#3b7d8b"> Лыжи для классического хода </h1>
 <div class="container">
+
+    <form data-th-action="@{/searchClassic}">
+        <input name="height" type="search" class="item-search" data-th-value="${height}">
+        <button type="submit">Подбор под ваш рост</button>
+    </form>
+
     <ul>
         <li data-th-each="item : ${items}" class="item">
             <a data-th-href="@{/{id}(id=${item.id})}">
-                [[${item.name}]]
+                [[${item.name}]] - [[${item.name}]]см
             </a>
         </li>
     </ul>
+
+    <p data-th-if="${items.size() == 0}" class="no-items">На ваш рост нет товара в наличии</p>
 
     <a href="/">На главную</a>
 </div>
