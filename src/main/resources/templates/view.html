@@ -11,6 +11,7 @@
 <body>
 
 <h1>[[${item.name}]]</h1>
+<h2>[[${item.description}]]</h2>
 
 <h2>Price: [[${item.price}]] rub</h2>
 <p>Size:
@@ -23,7 +24,7 @@
 
 <a data-th-href="@{/{id}/edit(id=${item.id})}">Edit</a>
 <a data-th-href="@{/{id}/remove(id=${item.id})}">Remove</a>
-<a href="/">Home</a>
+<a href="/">На главную</a>
 <!--<input type="button" onclick="history.back();" value="Назад"/>-->
 
 </body>

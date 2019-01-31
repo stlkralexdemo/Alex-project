@@ -19,6 +19,11 @@ public class ProductController {
     }
 
     @GetMapping()
+    public String getIndex(){
+        return "index";
+    }
+
+    @GetMapping("/all")
     public String getAll(Model model) {
         model.addAttribute("items", service.getAll());
         return "all";
@@ -35,8 +40,15 @@ public class ProductController {
     public String search(@RequestParam Integer height, Model model) {
         model.addAttribute("height", height); // чтобы отображать в поле поиска
         model.addAttribute("items", service.findAllMtbByHeight(height));
-        return "all";
+        return "allMtb";
     }
+
+//    @GetMapping(value = "/search", params = "height") // Mapping - определяет то, что должно быть в запросе
+//    public String search(@RequestParam Integer height, Model model) {
+//        model.addAttribute("height", height); // чтобы отображать в поле поиска
+//        model.addAttribute("items", service.findAllRoadBikeByHeight(height));
+//        return "allRoadBikes";
+//    }
 
     @GetMapping(value = "/search", params = "name") // Mapping - определяет то, что должно быть в запросе
     public String search(@RequestParam String name, Model model) {
@@ -45,7 +57,7 @@ public class ProductController {
         return "all";
     }
 
-    @GetMapping("/all/{Mtb}")
+    @GetMapping("/index/{Mtb}")
     public String getByType(@PathVariable("Mtb") ProductType type, Model model) {
         model.addAttribute("items", service.findByType(type));
         switch (type) {
@@ -54,7 +66,7 @@ public class ProductController {
             case SKATE:
                 return "allSkate";
             case ROAD:
-                return "allSkate";
+                return "allRoadBikes";
             case CLASSIC:
                 return "allClassic";
             default:

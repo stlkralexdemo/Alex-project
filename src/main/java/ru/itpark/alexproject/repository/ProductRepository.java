@@ -11,6 +11,10 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Integer>
 
     List<ProductEntity> findAllByMtbSizeOrderByPriceDesc(MTBSize mtbSize);
 
+    List<ProductEntity> findAllByRoadBikeSizeOrderByPriceDesc(Integer roadBikeSize);
+
+    List<ProductEntity> findAllBySkiSizeOrderByPriceDesc(Integer skateSize);
+
     List<ProductEntity> findAllByNameContainsIgnoreCaseOrderByPriceDesc(String name);
 
     List<ProductEntity> findProductEntitiesByProductTypeOrderByPriceDesc(ProductType type);

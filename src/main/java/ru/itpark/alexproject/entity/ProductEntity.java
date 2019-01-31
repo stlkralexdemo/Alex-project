@@ -22,9 +22,13 @@ public class ProductEntity {
     @Column(nullable = false)
     private Integer price;
     private String description;
+    @Enumerated(value = EnumType.STRING)
     private MTBSize mtbSize;
+    @Column(name = "ROADBIKESIZE")
     private Integer roadBikeSize;
     private Integer skiSize;
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "PRODUCTTYPE")
     private ProductType productType;
     private String image;
 
