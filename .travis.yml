@@ -6,4 +6,4 @@ after_success:
 deploy:
   provider: heroku
   api_key: $HEROKU_KEY
-  app: spring-boot-final-project-itpark
+  app: spring-final-project-itpark
