@@ -10,19 +10,50 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <body>
-<h1 style="background-color:azure"> Магазин спортивных товаров </h1>
-<h2>
+<h1 align="center" style="background-color:#80ff99"> Экипировочный центр </h1>
+
+<div class="card-group">
+    <div class="card" style="width: 18rem;">
+        <img src="https://cdn.tvc.ru/pictures/o/256/521.jpg"
+             class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Лыжи коньковые</h5>
+            <p class="card-text">Для перемещения коньковым ходом по широким подготовленным трассам</p>
+            <a href="/index/SKATE" class="btn btn-primary">Перейти</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="http://www.vremyasporta.ru/images/lyzhykak1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Лыжи классические</h5>
+            <p class="card-text">Для перемещения классическим ходом по лыжне</p>
+            <a href="/index/CLASSIC" class="btn btn-primary">Перейти</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="https://velodaily.ru/wp-content/uploads/2018/07/IMC_5282-1024x683.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Шоссейные велосипеды</h5>
+            <p class="card-text">Для скоростного передвижения по асфальтированным дорогам</p>
+            <a href="/index/ROAD" class="btn btn-primary">Перейти</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="https://twentysix.ru/uploads/images/01/60/83/2016/05/27/d0eee8_full.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Горные велосипеды</h5>
+            <p class="card-text">Велосипед, предназначенный для катания вне дорог</p>
+            <a href="/index/MTB" class="btn btn-primary">Перейти</a>
+        </div>
+    </div>
+</div>
+<h2>В каталоге возможен поиск по наименованию товара</h2>
+<h3>
     <form data-th-action="@{/search}">
         <input name="name" type="search" class="item-search" data-th-value="${name}">
-        <button type="submit">Поиск по наименованию</button>
+        <button type="submit">Поиск</button>
     </form>
-</h2>
-<ul>
+</h3>
 
-    <a href="https://spring-final-project-itpark.herokuapp.com/index/CLASSIC">Классические лыжи</a>
-    <a href="/index/SKATE">Коньковые лыжи</a>
-    <a href="/index/MTB">Горные велосипеды</a>
-    <a href="/index/ROAD">Шоссейные велосипеды</a>
-</ul>
 </body>
 </html>
