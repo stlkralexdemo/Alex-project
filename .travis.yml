@@ -6,9 +6,14 @@ install:
   - mvn -N io.takari:maven:wrapper
   - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
+script: ./mvnw -e verify
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+deploy:
+  provider: heroku
+  api_key: $HEROKU_KEY
+  app: finalproject-itpark
 
 notifications:
   email:
