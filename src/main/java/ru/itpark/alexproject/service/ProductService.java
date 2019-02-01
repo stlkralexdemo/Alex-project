@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.itpark.alexproject.entity.ProductEntity;
 import ru.itpark.alexproject.entity.MTBSize;
 import ru.itpark.alexproject.entity.ProductType;
+import ru.itpark.alexproject.exception.IdNotFoundException;
 import ru.itpark.alexproject.exception.ProductNotFoundException;
 import ru.itpark.alexproject.repository.ProductRepository;
 
@@ -30,7 +31,7 @@ public class ProductService {
             return MTBSize.M;
         } else if (height > 180 && height <= 190) {
             return MTBSize.L;
-        } else if (height > 190 && height <= 205) {
+        } else if (height > 190 && height <= 210) {
             return MTBSize.XL;
         } else throw new ProductNotFoundException();
     }
@@ -41,14 +42,16 @@ public class ProductService {
 
     private int findRoadBikeBySize(int height) {
         if (height > 145 && height <= 160) {
-            return 52;
+            return 50;
         } else if (height > 160 && height <= 170) {
-            return 54;
+            return 52;
         } else if (height > 170 && height <= 180) {
+            return 54;
+        } else if (height > 180 && height <= 188) {
             return 56;
-        } else if (height > 180 && height <= 190) {
+        } else if (height > 188 && height <= 195) {
             return 58;
-        } else if (height > 190 && height <= 205) {
+        } else if (height > 195 && height <= 210) {
             return 60;
         } else throw new ProductNotFoundException();
     }
@@ -99,7 +102,7 @@ public class ProductService {
 
     public ProductEntity getById(int id) {
         return repository.findById(id)
-                .orElseThrow(ProductNotFoundException::new);
+                .orElseThrow(IdNotFoundException::new);
     }
 
     public List<ProductEntity> findByName(String name) {
