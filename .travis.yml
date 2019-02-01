@@ -1,6 +1,10 @@
 language: java
 jdk: oraclejdk11
-script: mvn -e verify
+install:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+script:
+  - mvn test
+
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
