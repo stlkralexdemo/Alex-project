@@ -1,6 +1,7 @@
 package ru.itpark.alexproject.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ru.itpark.alexproject.entity.ProductEntity;
 import ru.itpark.alexproject.entity.MTBSize;
@@ -9,6 +10,8 @@ import ru.itpark.alexproject.exception.IdNotFoundException;
 import ru.itpark.alexproject.exception.ProductNotFoundException;
 import ru.itpark.alexproject.repository.ProductRepository;
 
+import java.net.URI;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +20,19 @@ public class ProductService {
 
     @Autowired
     private final ProductRepository repository;
+    private final Path uploadPath;
 
-    public ProductService(ProductRepository repository) {
+//    public ProductService(ProductRepository repository) {
+//        this.repository = repository;
+//    }
+
+    public ProductService(
+            ProductRepository repository,
+            // читаем значение из application.properties в параметр
+            @Value("${spring.resources.static-locations}") String uploadPath
+    ) {
         this.repository = repository;
+        this.uploadPath = Path.of(URI.create(uploadPath)).resolve("media");
     }
 
     private MTBSize findMtbBySize(int height) {

@@ -22,6 +22,7 @@
         <li data-th-each="item : ${items}" class="item">
             <a data-th-href="@{/{id}(id=${item.id})}">
                 [[${item.name}]] - [[${item.skiSize}]]см
+                <img data-th-src="@{/media/{path}(path=${item.path})}">
             </a>
         </li>
     </ul>

@@ -279,7 +279,10 @@ VALUES ('Cannondale TRAIL 4', 52080,
         'M', 'MTB');
 
 
-
+INSERT INTO products (name, price, description, SkiSize, productType, path)
+VALUES ('Fischer RCS Classic Cold', 25900,
+        'Классические лыжи с мелкой структурой скользящей поверхности для холодной погоды от -2°C и холоднее и сухого снега. Трехмерный носок и пятка лыж снижают вибрацию, а сотовый сердечник снижает вес конструкции без потери жесткости. ',
+        207, 'CLASSIC', 'FischerRCSClassic.jpg');
 
 
 
