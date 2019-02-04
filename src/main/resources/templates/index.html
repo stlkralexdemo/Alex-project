@@ -39,7 +39,8 @@
         </div>
     </div>
     <div class="card" style="width: 18rem;">
-        <img src="https://twentysix.ru/uploads/images/01/60/83/2016/05/27/d0eee8_full.jpg" class="card-img-top" alt="...">
+        <img src="https://twentysix.ru/uploads/images/01/60/83/2016/05/27/d0eee8_full.jpg" class="card-img-top"
+             alt="...">
         <div class="card-body">
             <h5 class="card-title">Горные велосипеды</h5>
             <p class="card-text">Велосипед, предназначенный для катания вне дорог</p>
@@ -48,15 +49,16 @@
     </div>
 </div>
 <h2 align="center">В каталоге возможен поиск по наименованию товара</h2>
-<h3 align="center">
+<h5 align="center">
     <form data-th-action="@{/search}">
         <input name="name" type="search" class="item-search" data-th-value="${name}">
         <button type="submit">Поиск</button>
     </form>
-</h3>
+</h5>
 
 <!--<a data-th-href="@{/lot/0/edit}">Add</a>-->
-<a style="color: brown" aria-setsize="24px" data-th-href="@{/lot/all}">Доска объявлений</a>
-
+<h2 align="center" >
+    <a style="color: brown" data-th-href="@{/lot/all}">Можете заглянуть на нашу доску объявлений</a>
+</h2>
 </body>
 </html>
