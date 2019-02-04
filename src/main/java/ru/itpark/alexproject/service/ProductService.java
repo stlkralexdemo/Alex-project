@@ -95,7 +95,7 @@ public class ProductService {
     }
 
     public List<ProductEntity> findAllSkateSkiBySize(int height) {
-        return repository.findAllSkateBySkiSizeOrderByPriceDesc(findSkateSkiByHeight(height));
+        return repository.findAllbySkateBySkiSizeOrderByPriceDesc(findSkateSkiByHeight(height));
     }
 
     private int findClassicSkiByHeight(int height) {
@@ -113,7 +113,7 @@ public class ProductService {
     }
 
     public List<ProductEntity> findAllClassicSkiBySize(int height) {
-        return repository.findAllClassicBySkiSizeOrderByPriceDesc(findClassicSkiByHeight(height));
+        return repository.findAllbyClassicBySkiSizeOrderByPriceDesc(findClassicSkiByHeight(height));
     }
 
     public List<ProductEntity> getAll() {
