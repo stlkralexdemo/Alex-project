@@ -29,7 +29,7 @@ public class LotService {
         this.uploadPath = Path.of(URI.create(uploadPath)).resolve("media");
         try {
             Files.createDirectories(this.uploadPath);
-            Files.writeString(this.uploadPath.resolve("demo.txt"), "Hello world");
+//            Files.writeString(this.uploadPath.resolve("demo.txt"), "Hello world");
         } catch (IOException e) {
             e.printStackTrace();
         }
