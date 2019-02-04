@@ -22,6 +22,9 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.UUID;
 
+import static ru.itpark.alexproject.entity.ProductType.CLASSIC;
+import static ru.itpark.alexproject.entity.ProductType.SKATE;
+
 @Service
 public class ProductService {
 
@@ -95,7 +98,7 @@ public class ProductService {
     }
 
     public List<ProductEntity> findAllSkateSkiBySize(int height) {
-        return repository.findAllSkateBySkiSizeOrderByPriceDesc(findSkateSkiByHeight(height));
+        return repository.findProductEntitiesByProductTypeAndSkiSizeOrderByPriceDesc(SKATE, findSkateSkiByHeight(height));
     }
 
     private int findClassicSkiByHeight(int height) {
@@ -113,7 +116,7 @@ public class ProductService {
     }
 
     public List<ProductEntity> findAllClassicSkiBySize(int height) {
-        return repository.findAllClassicBySkiSizeOrderByPriceDesc(findClassicSkiByHeight(height));
+        return repository.findProductEntitiesByProductTypeAndSkiSizeOrderByPriceDesc(CLASSIC, findClassicSkiByHeight(height));
     }
 
     public List<ProductEntity> getAll() {
