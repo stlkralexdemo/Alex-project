@@ -2,18 +2,25 @@ package ru.itpark.alexproject.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import ru.itpark.alexproject.dto.LotDto;
 import ru.itpark.alexproject.entity.ProductEntity;
 import ru.itpark.alexproject.entity.MTBSize;
 import ru.itpark.alexproject.entity.ProductType;
 import ru.itpark.alexproject.exception.IdNotFoundException;
 import ru.itpark.alexproject.exception.ProductNotFoundException;
+import ru.itpark.alexproject.exception.UnsupportedFileContentTypeException;
+import ru.itpark.alexproject.exception.UploadFileException;
 import ru.itpark.alexproject.repository.ProductRepository;
 
+import java.io.IOException;
 import java.net.URI;
+import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ProductService {
@@ -28,12 +35,12 @@ public class ProductService {
 
     public ProductService(
             ProductRepository repository,
-            // читаем значение из application.properties в параметр
             @Value("${spring.resources.static-locations}") String uploadPath
     ) {
         this.repository = repository;
         this.uploadPath = Path.of(URI.create(uploadPath)).resolve("media");
     }
+
 
     private MTBSize findMtbBySize(int height) {
         if (height > 145 && height <= 160) {
@@ -125,4 +132,51 @@ public class ProductService {
     public List<ProductEntity> findByType(ProductType type) {
         return repository.findProductEntitiesByProductTypeOrderByPriceDesc(type);
     }
+
+//    public void save(LotDto item) {
+//        ProductEntity entity = getByIdOrEmpty(item.getId());
+//        entity.setName(item.getName());
+//        entity.setPrice(item.getPrice());
+//        entity.setDescription(item.getDescription());
+//
+//        MultipartFile file = item.getFile();
+//        if (!file.isEmpty() && file.getContentType() != null) {
+//            String ext;
+//            if (file.getContentType().equals(MediaType.IMAGE_PNG_VALUE)) {
+//                ext = ".png";
+//            } else if (file.getContentType().equals(MediaType.IMAGE_JPEG_VALUE)) {
+//                ext = ".jpg";
+//            } else {
+//                throw new UnsupportedFileContentTypeException();
+//            }
+//
+//            String name = UUID.randomUUID().toString() + ext;
+//
+//            try {
+//                file.transferTo(uploadPath.resolve(name));
+//
+//                // Удаляем старый, если был
+//                if (entity.getPath() != null) {
+//                    Files.deleteIfExists(uploadPath.resolve(entity.getPath()));
+//                }
+//            } catch (IOException e) {
+//                throw new UploadFileException(e); // rethrowing
+//            }
+//
+//            entity.setPath(name);
+//        }
+//
+//        repository.save(entity);
+//    }
+//
+//    public ProductEntity getByIdOrEmpty(int id) {
+////        if (id == 0) {
+////            return repository.getById(id)
+////                    .orElse(new ProductEntity());
+////        }
+////
+////        return getById(id);
+//        return repository.findById(id)
+//                .orElse(new ProductEntity());
+//    }
 }

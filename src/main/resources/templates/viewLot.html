@@ -17,15 +17,8 @@
 
 <p style="color: darkred">Цена: [[${item.price}]] рублей</p>
 
-<p>Размер:
-<scope>[[${item.mtbSize}]]</scope>
-<scope>[[${item.roadBikeSize}]]</scope>
-<scope>[[${item.skiSize}]] </scope>
-</p>
-<img data-th-src="@{/media/{path}(path=${item.path})}">
 
-
-<a data-th-href="@{/{id}/edit(id=${item.id})}">Edit</a>
+<!--<a data-th-href="@{/{id}/edit(id=${item.id})}">Edit</a>-->
 <!--<a data-th-href="@{/{id}/remove(id=${item.id})}">Remove</a>-->
 <a href="/">На главную</a>
 
