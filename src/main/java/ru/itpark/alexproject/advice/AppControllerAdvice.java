@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import ru.itpark.alexproject.exception.IdNotFoundException;
 import ru.itpark.alexproject.exception.ProductNotFoundException;
 import ru.itpark.alexproject.exception.UnsupportedFileContentTypeException;
+import ru.itpark.alexproject.exception.UploadFileException;
 
 
 @ControllerAdvice
@@ -30,6 +31,13 @@ public class AppControllerAdvice {
     @ExceptionHandler(UnsupportedFileContentTypeException.class)
     public String unsupportedFile(Model model) {
         model.addAttribute("message", "Поддерживаемые форматы картинок jpg и png, размер не более 10Mb");
+        return "error";
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(UploadFileException.class)
+    public String UploadFileError(Model model) {
+        model.addAttribute("message", "Не удалось загрузить файл");
         return "error";
     }
 }
