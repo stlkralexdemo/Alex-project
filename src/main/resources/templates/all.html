@@ -25,6 +25,9 @@
         <li data-th-each="item : ${items}" class="item list-group-item">
             <a data-th-href="@{/{id}(id=${item.id})}">
                 [[${item.name}]]
+                [[${item.roadBikeSize}]]
+                [[${item.MTBSize}]]
+                [[${item.skiSize}]]
             </a>
         </li>
     </ul>
