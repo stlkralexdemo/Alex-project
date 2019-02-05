@@ -84,4 +84,8 @@ public class LotService {
         return repository.findById(id)
                 .orElseThrow(IdNotFoundException::new);
     }
+
+    public void removeById(int id) {
+        repository.deleteById(id);
+    }
 }

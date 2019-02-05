@@ -18,11 +18,10 @@
 <p style="color: darkred">Цена: [[${item.price}]] рублей</p>
 
 
-<!--<a data-th-href="@{/{id}/edit(id=${item.id})}">Edit</a>-->
-<!--<a data-th-href="@{/{id}/remove(id=${item.id})}">Remove</a>-->
+<a data-th-href="@{/lot/{id}/edit(id=${item.id})}">Редактировать</a>
+<a data-th-href="@{/lot/{id}/remove(id=${item.id})}">Удалить объявление</a>
 <a href="/">На главную</a>
 <a href="/lot/all">Все объявления</a>
-
 
 
 </body>

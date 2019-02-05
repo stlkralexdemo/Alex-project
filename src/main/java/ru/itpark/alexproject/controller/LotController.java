@@ -43,4 +43,21 @@ public class LotController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/{id}/remove")
+    public String remove(
+            @PathVariable int id,
+            Model model
+    ) {
+        model.addAttribute("item", service.getById(id));
+        return "remove";
+    }
+
+    @PostMapping("/{id}/remove")
+    public String remove(
+            @PathVariable int id
+    ) {
+        service.removeById(id);
+        return "redirect:/";
+    }
 }

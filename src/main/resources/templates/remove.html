@@ -10,23 +10,10 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
-
-<h1 align="center" >[[${item.name}]] </h1>
-<p align="center">[[${item.description}]]</p>
-
-<img  data-th-src="@{/media/{path}(path=${item.path})}" width="50%" align="center">
-
-<p style="color: darkred">Цена: [[${item.price}]] рублей </p>
-
-<p style="color: dimgrey">Размер:
-    <scope>[[${item.mtbSize}]]</scope>
-    <scope>[[${item.roadBikeSize}]]</scope>
-    <scope>[[${item.skiSize}]]</scope>
-</p>
-
-
-<a href="/">На главную</a>
-
-
+<form method="post">
+    <p align="center" style="color: red">Вы уверены?
+        <button>Да, удалить</button>
+    </p>
+</form>
 </body>
 </html>

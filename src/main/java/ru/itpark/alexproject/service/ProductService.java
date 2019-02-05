@@ -84,15 +84,15 @@ public class ProductService {
     }
 
     private int findSkateSkiByHeight(int height) {
-        if (height > 145 && height <= 155) {
+        if (height > 145 && height <= 160) {
             return 167;
-        } else if (height > 155 && height <= 165) {
+        } else if (height > 160 && height <= 168) {
             return 174;
-        } else if (height > 165 && height <= 175) {
+        } else if (height > 168 && height <= 175) {
             return 181;
-        } else if (height > 175 && height <= 185) {
+        } else if (height > 175 && height <= 180) {
             return 188;
-        } else if (height > 185 && height <= 205) {
+        } else if (height > 180 && height <= 205) {
             return 193;
         } else throw new ProductNotFoundException();
     }
