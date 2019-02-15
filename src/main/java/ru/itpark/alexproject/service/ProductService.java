@@ -32,10 +32,6 @@ public class ProductService {
     private final ProductRepository repository;
     private final Path uploadPath;
 
-//    public ProductService(ProductRepository repository) {
-//        this.repository = repository;
-//    }
-
     public ProductService(
             ProductRepository repository,
             @Value("${spring.resources.static-locations}") String uploadPath
@@ -90,9 +86,9 @@ public class ProductService {
             return 174;
         } else if (height > 168 && height <= 175) {
             return 181;
-        } else if (height > 175 && height <= 180) {
+        } else if (height > 175 && height <= 183) {
             return 188;
-        } else if (height > 180 && height <= 205) {
+        } else if (height > 183 && height <= 205) {
             return 193;
         } else throw new ProductNotFoundException();
     }
@@ -135,51 +131,4 @@ public class ProductService {
     public List<ProductEntity> findByType(ProductType type) {
         return repository.findProductEntitiesByProductTypeOrderByPriceDesc(type);
     }
-
-//    public void save(LotDto item) {
-//        ProductEntity entity = getByIdOrEmpty(item.getId());
-//        entity.setName(item.getName());
-//        entity.setPrice(item.getPrice());
-//        entity.setDescription(item.getDescription());
-//
-//        MultipartFile file = item.getFile();
-//        if (!file.isEmpty() && file.getContentType() != null) {
-//            String ext;
-//            if (file.getContentType().equals(MediaType.IMAGE_PNG_VALUE)) {
-//                ext = ".png";
-//            } else if (file.getContentType().equals(MediaType.IMAGE_JPEG_VALUE)) {
-//                ext = ".jpg";
-//            } else {
-//                throw new UnsupportedFileContentTypeException();
-//            }
-//
-//            String name = UUID.randomUUID().toString() + ext;
-//
-//            try {
-//                file.transferTo(uploadPath.resolve(name));
-//
-//                // Удаляем старый, если был
-//                if (entity.getPath() != null) {
-//                    Files.deleteIfExists(uploadPath.resolve(entity.getPath()));
-//                }
-//            } catch (IOException e) {
-//                throw new UploadFileException(e); // rethrowing
-//            }
-//
-//            entity.setPath(name);
-//        }
-//
-//        repository.save(entity);
-//    }
-//
-//    public ProductEntity getByIdOrEmpty(int id) {
-////        if (id == 0) {
-////            return repository.getById(id)
-////                    .orElse(new ProductEntity());
-////        }
-////
-////        return getById(id);
-//        return repository.findById(id)
-//                .orElse(new ProductEntity());
-//    }
 }

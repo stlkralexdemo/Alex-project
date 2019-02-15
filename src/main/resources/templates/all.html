@@ -11,10 +11,6 @@
 </head>
 <body>
 <div class="container">
-    <!--<form data-th-action="@{/search}">-->
-    <!--<input name="height" type="search" class="item-search" data-th-value="${height}">-->
-    <!--<button type="submit">Подбор под ваш рост</button>-->
-    <!--</form>-->
 
     <form data-th-action="@{/search}">
         <input name="name" type="search" class="item-search" data-th-value="${name}">
@@ -33,8 +29,6 @@
     </ul>
 
     <p data-th-if="${items.size() == 0}" class="no-items">Товары не найдены</p>
-
-    <!--<a data-th-href="@{/0/edit}">Add</a>-->
 
     <a href="/">На главную</a>
 </div>

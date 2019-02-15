@@ -33,6 +33,5 @@ public class ProductEntity {
     @Enumerated(value = EnumType.STRING)
     @Column(name = "PRODUCTTYPE")
     private ProductType productType;
-//    private String image;
     private String path;
 }

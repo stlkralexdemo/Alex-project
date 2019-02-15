@@ -13,5 +13,5 @@ public class LotDto {
     private String name;
     private String description;
     private int price;
-    private MultipartFile file; // name="file"
+    private MultipartFile file;
 }
