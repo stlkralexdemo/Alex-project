@@ -41,7 +41,7 @@ public class LotController {
     ) {
         service.save(dto);
 
-        return "redirect:/";
+        return "redirect:/lot/all";
     }
 
     @GetMapping("/{id}/remove")

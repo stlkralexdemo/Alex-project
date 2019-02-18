@@ -23,7 +23,10 @@ import ru.itpark.alexproject.entity.ProductEntity;
 import ru.itpark.alexproject.entity.ProductType;
 import ru.itpark.alexproject.repository.ProductRepository;
 
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -113,6 +116,33 @@ public class AlexProjectApplicationTests {
                         .getText().toLowerCase()
                         .contains("scott")
         );
+    }
+
+    @Test
+    @DirtiesContext
+    public void addWithImage() throws URISyntaxException {
+        webDriver.get("http://localhost:" + port + "/lot/0/edit");
+        webDriver.findElement(By.name("name")).sendKeys("Test Lot");
+        webDriver.findElement(By.name("price")).sendKeys("2100");
+        webDriver.findElement(By.name("description")).sendKeys("Good condition");
+        webDriver.findElement(By.name("file")).sendKeys(
+                Paths.get(
+                        Objects.requireNonNull(getClass().getClassLoader().getResource("demo.jpg")).toURI()
+                ).toString()
+        );
+
+        webDriver.findElement(By.tagName("button")).click();
+
+        var wait = new WebDriverWait(webDriver, 5);
+        wait.until(ExpectedConditions.urlToBe("http://localhost:" + port + "/lot/all"));
+
+        wait.until(ExpectedConditions.numberOfElementsToBe(By.className("item"), 1));
+
+        webDriver.findElement(By.cssSelector(".item a")).click();
+
+        wait.until(ExpectedConditions.attributeContains(
+                By.tagName("img"), "src", ".jpg"
+        ));
     }
 
 }
