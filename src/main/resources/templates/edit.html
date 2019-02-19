@@ -10,7 +10,7 @@
 <body>
 
 <p data-th-if="${item.id != 0}">
-    <img data-th-src="@{/media/{path}(path=${item.path})}" width="30%">
+    <img data-th-src="@{/media/{path}(path=${item.path})}" width="25%">
 </p>
 
 <!--<form method="post" enctype="multipart/form-data">-->
@@ -21,14 +21,17 @@
     <!--<button  style="color: tomato">Разместить объявление</button>-->
 
     <form>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Введите имя</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <small id="emailHelp" class="form-text text-muted">Дайте краткое и ёмкое название объявлению</small>
-        </div>
-        <div class="form-group">
-            <label for="${item.description}">Описание</label>
-            <input type="password" class="form-control" id="${item.description}">
+        <div class="row">
+            <div class="col">
+                <input name="name" data-th-value="${item.name}" type="text" class="form-control" placeholder="Название">
+            </div>
+            <div class="col">
+                <input name="description" data-th-value="${item.description}" type="text" class="form-control" placeholder="Описание">
+            </div>
+            <div class="col">
+                <input name="price" data-th-value="${item.price}" required pattern="^[ 0-9]+$" title="Введите цену в рублях" type="text" class="form-control" placeholder="Стоимость">
+            </div>
+
         </div>
         <div class="form-group">
             <label for="exampleFormControlFile1">Выберите фото</label>
