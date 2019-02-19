@@ -10,20 +10,20 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
-<h1 class="shadow-lg p-3 mb-5 bg-white rounded"
-    style="background-color: #d27018"> Горные велосипеды </h1>
+<h1 class="shadow-lg p-3 mb-5 bg-white rounded" style="color: brown" align="center"> Горные велосипеды </h1>
 <div class="container">
 
-    <p style="font-size: 18px" >Введите рост в сантиметрах</p>
+    <p style="font-size: 18px">Введите рост в сантиметрах</p>
     <form data-th-action="@{/search}">
-        <input name="height" type="search" class="item-search" data-th-value="${height}" required pattern="^[ 0-9]+$" title="Введите рост в сантиметрах">
+        <input name="height" type="search" class="item-search" data-th-value="${height}" required pattern="^[ 0-9]+$"
+               title="Введите рост в сантиметрах">
         <button type="submit">Подбор под ваш рост</button>
     </form>
 
     <ul>
         <li data-th-each="item : ${items}" class="item">
             <a data-th-href="@{/{id}(id=${item.id})}">
-                [[${item.name}]] - [[${item.mtbSize}]]  / [[${item.price}]] рублей
+                [[${item.name}]] - [[${item.mtbSize}]] / [[${item.price}]] рублей
             </a>
         </li>
     </ul>
