@@ -12,6 +12,14 @@
 <body>
 <h1 style="color: darkgreen" class="shadow-lg p-3 mb-5 bg-white rounded" align="center"> Экипировочный центр </h1>
 
+<h3 align="center">В каталоге возможен поиск по наименованию товара</h3>
+<h4 align="center">
+    <form data-th-action="@{/search}">
+        <input name="name" type="search" class="item-search" data-th-value="${name}">
+        <button type="submit">Поиск</button>
+    </form>
+</h4>
+
 <div class="card-group">
     <div class="card" style="width: 18rem;">
         <img src="https://cdn.tvc.ru/pictures/o/256/521.jpg"
@@ -48,13 +56,7 @@
         </div>
     </div>
 </div>
-<h2 align="center">В каталоге возможен поиск по наименованию товара</h2>
-<h4 align="center">
-    <form data-th-action="@{/search}">
-        <input name="name" type="search" class="item-search" data-th-value="${name}">
-        <button type="submit">Поиск</button>
-    </form>
-</h4>
+
 
 <h2 align="center" >
     <a style="color: brown" data-th-href="@{/lot/all}">Загляните на нашу доску объявлений</a>
