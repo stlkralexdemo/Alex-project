@@ -11,24 +11,15 @@
 </head>
 <body>
 
-<!--<h1>[[${item.name}]]</h1>-->
-<!--<p>[[${item.description}]]</p>-->
+<h3 class="shadow-lg p-3 mb-5 bg-white rounded" style="color: black" align="center"> Для покупки товара свяжитесь с
+    автором объявления</h3>
 
-<!--<img data-th-src="@{/media/{path}(path=${item.path})}" width="40%" align="center">-->
-
-<!--<p style="color: darkred">Цена: [[${item.price}]] рублей</p>-->
-
-
-<!--<a data-th-href="@{/lot/{id}/edit(id=${item.id})}">Редактировать</a>-->
-<!--<a data-th-href="@{/lot/{id}/remove(id=${item.id})}" style="color: red">Удалить объявление</a>-->
-<!--<a href="/">На главную</a>-->
-<!--<a href="/lot/all" style="color:darkgreen">Все объявления</a>-->
-
-<div class="card" style="width: 50rem;">
+<div class="card" style="width: 55rem;">
     <img data-th-src="@{/media/{path}(path=${item.path})}" class="card-img-top">
     <div class="card-body">
-        <h5 class="card-title">[[${item.name}]]</h5>
-        <p class="card-text">[[${item.description}]]</p>
+        <h4 class="card-title">[[${item.name}]]</h4>
+        <p class="card-text">Описание: [[${item.description}]]</p>
+        <p style="color: darkred">Цена: [[${item.price}]] рублей</p>
     </div>
 
     <div class="card-body">
