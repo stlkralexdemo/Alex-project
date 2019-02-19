@@ -6,23 +6,47 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
 
-<h1>[[${item.name}]]</h1>
-<p>[[${item.description}]]</p>
+<!--<h1>[[${item.name}]]</h1>-->
+<!--<p>[[${item.description}]]</p>-->
 
-<img data-th-src="@{/media/{path}(path=${item.path})}" width="40%" align="center">
+<!--<img data-th-src="@{/media/{path}(path=${item.path})}" width="40%" align="center">-->
 
-<p style="color: darkred">Цена: [[${item.price}]] рублей</p>
+<!--<p style="color: darkred">Цена: [[${item.price}]] рублей</p>-->
 
 
-<a data-th-href="@{/lot/{id}/edit(id=${item.id})}">Редактировать</a>
-<a data-th-href="@{/lot/{id}/remove(id=${item.id})}" style="color: red">Удалить объявление</a>
-<a href="/">На главную</a>
-<a href="/lot/all" style="color:darkgreen">Все объявления</a>
+<!--<a data-th-href="@{/lot/{id}/edit(id=${item.id})}">Редактировать</a>-->
+<!--<a data-th-href="@{/lot/{id}/remove(id=${item.id})}" style="color: red">Удалить объявление</a>-->
+<!--<a href="/">На главную</a>-->
+<!--<a href="/lot/all" style="color:darkgreen">Все объявления</a>-->
 
+<div class="card" style="width: 50rem;">
+    <img data-th-src="@{/media/{path}(path=${item.path})}" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">[[${item.name}]]</h5>
+        <p class="card-text">[[${item.description}]]</p>
+    </div>
+
+    <div class="card-body">
+        <a data-th-href=@{/lot/{id}/edit(id=${item.id})}" class="card-link">Редактировать</a>
+    </div>
+
+    <div class="card-body">
+        <a data-th-href="@{/lot/{id}/remove(id=${item.id})}" style="color: red">Удалить</a>
+    </div>
+
+    <div class="card-body">
+        <a href="/lot/all" style="color:darkgreen">Все объявления</a>
+    </div>
+
+    <div class="card-body">
+        <a href="/" class="card-link">На главную</a>
+    </div>
+</div>
 
 </body>
 </html>
