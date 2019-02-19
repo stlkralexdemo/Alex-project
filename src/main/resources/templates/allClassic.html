@@ -15,7 +15,7 @@
 
     <p style="font-size: 18px" >Введите рост в сантиметрах</p>
     <form data-th-action="@{/searchClassic}">
-        <input name="height" type="search" class="item-search" data-th-value="${height}">
+        <input name="height" type="search" class="item-search" data-th-value="${height}" required pattern="^[ 0-9]+$">
         <button type="submit">Подбор под ваш рост</button>
     </form>
 

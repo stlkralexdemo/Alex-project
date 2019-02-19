@@ -56,17 +56,14 @@ public class LotService {
             try {
                 file.transferTo(uploadPath.resolve(name));
 
-                // Удаляем старый, если был
                 if (entity.getPath() != null) {
                     Files.deleteIfExists(uploadPath.resolve(entity.getPath()));
                 }
             } catch (IOException e) {
-                throw new UploadFileException(e); // rethrowing
+                throw new UploadFileException(e);
             }
-
             entity.setPath(name);
         }
-
         repository.save(entity);
     }
 
